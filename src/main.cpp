@@ -90,21 +90,20 @@ void getSerial(uint8_t *ptr)
   firstByte = firstByte << 8;
   firstByte = firstByte + readSerialIfDataAvailable();
   readSerialIfDataAvailable();
-  if (bitRead(firstByte, 0))
+  if (bitRead(firstByte, 0)) //Read if color[] should be updated
     for (size_t currentByte = 0; currentByte < 3 * animationLength; currentByte++)
     {
       *(ptr + currentByte) = readSerialIfDataAvailable();
     }
-  if (bitRead(firstByte, 1))
-
+  if (bitRead(firstByte, 1)) // Read if EffectSpeed should be updated
     *(ptr + (3 * animationLength)) = readSerialIfDataAvailable();
   byte ctrlG = readSerialIfDataAvailable();
   byte ctrlB = readSerialIfDataAvailable();
-  if (bitRead(firstByte, 8)) //Read if AnimBounce shoud be updated
+  if (bitRead(firstByte, 8)) //Read if AnimBounce should be updated
     bitWrite(*(ptr + (3 * animationLength) + 1), 0, bitRead(ctrlG, 0));
-  if (bitRead(firstByte, 9)) //Read if Table Relais shoud be updated
+  if (bitRead(firstByte, 9)) //Read if Table Relais should be updated
     bitWrite(*(ptr + (3 * animationLength) + 1), 1, bitRead(ctrlG, 1));
-  if (bitRead(firstByte, 15)) //Read if Reset ColorStep shoud be updated
+  if (bitRead(firstByte, 15)) //Read if Reset ColorStep should be updated
     bitWrite(*(ptr + (3 * animationLength) + 2), 0, bitRead(ctrlB, 0));
 
   //Serial.readBytes(color[0].red, 3 * (animationLength + 1));

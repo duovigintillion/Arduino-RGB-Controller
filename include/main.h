@@ -5,25 +5,25 @@
 #define WRAPPING_BIT bitRead(color[animationLength].green, 1)
 #define RELAIS bitRead(color[animationLength].green, 0)
 #define RESET_AT_TRANSMIT bitRead(color[animationLength].blue, 0)
-// RED Byte           =   Anim speed
+// RED Byte           =   0-7 Anim speed
 
-// GREEN LSB to MSB   =   Relay Pin 8
-//                        0 - Reset colorStep at end.  1 - Count backwards when colorStep reaches end.
-//                        -
-//                        -
-//                        -
-//                        -
-//                        -
-//                        DO NOT USE!!!
+// GREEN LSB to MSB   =   8   Relay Pin 8
+//                        9   0 - Reset colorStep at end.  1 - Count backwards when colorStep reaches end.
+//                        10  -
+//                        11  -
+//                        12  -
+//                        13  -
+//                        14  -
+//                        15  DO NOT USE!!!
 
-// BLUE LSB to RSB    =   Reset colorStep when reciving new colorvalues.
-//                        -
-//                        -
-//                        -
-//                        -
-//                        -
-//                        -
-//                        DO NOT USE!!!
+// BLUE LSB to RSB    =   16  Reset colorStep when reciving new colorvalues.
+//                        17  -
+//                        18  -
+//                        19  -
+//                        20  -
+//                        21  -
+//                        22  -
+//                        23  DO NOT USE!!!
 
 //define Pins
 namespace PinDefs {

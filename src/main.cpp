@@ -73,7 +73,7 @@ void countFwdBwd()
   return;
 }
 
-//This function watis for serial data to read and returns the incomming byte !!!NO TIMEOUT!!!
+//This function watis for serial data to read and returns the incomming byte !NO TIMEOUT!
 int readSerialIfDataAvailable()
 {
   while (Serial.available() < 1)
